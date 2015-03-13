@@ -16,6 +16,9 @@ game.PlayerEntity = me.Entity.extend({
            this.body.setVelocity(5, 20);
            //keeps track of where your character is going
            this.facing = "right";
+           this.now = new Date().getTime();
+           this.lastHit = this.now;
+           this.lastAttack = new Date().getTime;//haven't use this
            //this means that the screen will follow where ever the player goes
            me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
            
@@ -27,6 +30,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     update: function(delta) {
+        this.now = new Date().getTime();
         if (me.input.isKeyPressed("right")) {
             //adds to the position of my x by the Velocity defined above in
             //setVelocity() and multiplying it by me.timer.tick
@@ -97,7 +101,9 @@ game.PlayerEntity = me.Entity.extend({
                this.pos.x = this.pos.x +1;
            }
            
-           if(this.renderable.isCurrentAnimation("attack")){
+           if(this.renderable.isCurrentAnimation("attack") && this.now-this.lastHit >=1000){
+               console.log("tower Hit");
+               this.lastHit = this.now;
                response.b.loseHealth();
            }
         }
@@ -142,7 +148,9 @@ game.PlayerBaseEntity = me.Entity.extend({
     
     onCollision: function(){
         
-    }
+    },
+    
+
 });
 game.EnemyBaseEntity = me.Entity.extend({
     init : function(x, y, settings){
@@ -180,6 +188,39 @@ game.EnemyBaseEntity = me.Entity.extend({
     },
     
     onCollision: function(){
+        
+    },
+    
+        loseHealth: function(){
+        this.health--;
+    }
+});
+
+game.EnemyCreep = me.Entity.extend({
+    init: function(x, y, settings){
+        this._super(me.Entity, 'init', [x, y, {
+                image: "creep1",
+                width: 32,
+                height: 64,
+                spritewidth: "32",
+                spriteheight: "64",
+                getShape: function(){
+                    return (new me.Rect(0, 0, 32, 64)).toPolygon();
+                }
+        }]);
+        this.health = 10;
+        this.alwaysUpdate = true;
+        
+        this.setVelocity(3, 20);
+        
+        this.type = "EnemyCreep";
+        
+        this.renderable.addAnimation("walk", [3, 4, 5], 80);
+        this.renderable.setCurrentAnimation("walk");
+        
+    },
+    
+    update: function(){
         
     }
 });
