@@ -1,4 +1,7 @@
 <!DOCTYPE HTML>
+<?php
+   require_once("php/controller/create-db.php");
+?>
 <html>
 	<head>
 		<title>melonJS Template</title>
@@ -11,7 +14,10 @@
         <link rel="apple-touch-icon" sizes="76x76" href="icons/touch-icon-ipad-76x76.png">
         <link rel="apple-touch-icon" sizes="120x120" href="icons/touch-icon-iphone-retina-120x120.png">
         <link rel="apple-touch-icon" sizes="152x152" href="icons/touch-icon-ipad-retina-152x152.png">
-	</head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        </head>
 	<body>
 		<!-- Canvas placeholder -->
 		<div id="screen"></div>
@@ -86,5 +92,9 @@
 				}
 			});
 		</script>
+                
+                <script>
+                
+                </script>
 	</body>
 </html>
