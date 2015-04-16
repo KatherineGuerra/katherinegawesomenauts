@@ -12,7 +12,7 @@ game.NewProfile = me.ScreenObject.extend({
                 me.input.unbindKey(me.input.KEY.E);
                 me.input.unbindKey(me.input.KEY.W);
                 me.input.unbindKey(me.input.KEY.A);
-                var exp1cost = ((game.data.exp1 + 1) * 10)
+                var exp1cost = ((game.data.exp1 + 1) * 10);
         
                 me.game.world.addChild(new(me.Renderable.extend({
                   init: function(){

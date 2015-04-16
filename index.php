@@ -30,7 +30,7 @@
                     
                     <div class='password'>
                         <label for='password'>Password</label>
-                        <input type='text' name='password' id='password'>
+                        <input type='password' name='password' id='password'>
                     </div>
                     
                     <button type='button' id='register'>Register</button>
@@ -94,7 +94,62 @@
 		</script>
                 
                 <script>
+                $("#mainmenu").bind("click", function(){
+                    me.state.change(me.state.MENU);
+                });
                 
+                 $("#register").bind("click", function(){
+                    $.ajax({
+                        type: "POST",
+                        url: "php/controller/create-user.php",
+                        data: {
+                            username: $('username').val(),
+                            password: $('password').val()
+                        },
+                        datatype: "text"
+                    })
+                            .success(function(response){
+                                if(response){
+                                    me.state.change(me.state.PLAY);
+                                }else{
+                                   alert(response);
+                                }
+                            })
+                            .fail(function(response){
+                                alert("Fail");
+                            });
+                });
+                
+                 $("#load").bind("click", function(){
+                    $.ajax({
+                        type: "POST",
+                        url: "php/controller/login-user.php",
+                        data: {
+                            username: $('username').val(),
+                            password: $('password').val()
+                        },
+                        datatype: "text"
+                    })
+                            .success(function(response){
+                                if(response==="Invalid usernsme and password"){
+                                    alert(response);
+                                    
+                                }else{
+                                    var data = jQuery.parseJSON(response);
+                                    game.data.exp = data["exp"];
+                                    game.data.exp1 = data["exp1"];
+                                    game.data.exp2 = data["exp2"];
+                                    game.data.exp3 = data["exp3"];
+                                    game.data.exp4 = data["exp4"];
+                                    
+                                    
+                                   me.state.change(me.state.SPENDEXP);
+                                }
+                            })
+                            .fail(function(response){
+                                alert("Fail");
+                            });
+                });
                 </script>
 	</body>
-</html>
+</html

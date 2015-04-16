@@ -6,14 +6,14 @@ game.LoadProfile = me.ScreenObject.extend({
 		me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("load-screen")), -10); // TODO
                 document.getElementById("input").style.visibility = "visible";
                 document.getElementById("load").style.visibility = "visible";
-
+                console.log('loading2');
 
                 me.input.unbindKey(me.input.KEY.B);
                 me.input.unbindKey(me.input.KEY.Q);
                 me.input.unbindKey(me.input.KEY.E);
                 me.input.unbindKey(me.input.KEY.W);
                 me.input.unbindKey(me.input.KEY.A);
-                var exp1cost = ((game.data.exp1 + 1) * 10)
+                var exp1cost = ((game.data.exp1 + 1) * 10);
         
                 me.game.world.addChild(new(me.Renderable.extend({
                   init: function(){

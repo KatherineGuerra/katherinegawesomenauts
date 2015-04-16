@@ -32,10 +32,10 @@
            echo json_ecode($array);
        }
        else{
-           echo "<p>Invalid username and password</p>";
+           echo "Invalid username and password";
        }
    }
    else{
-       echo "<p>Invalid username and password2</p>";
+       echo "Invalid username and password";
    }
    

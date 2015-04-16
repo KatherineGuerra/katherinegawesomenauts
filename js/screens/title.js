@@ -24,6 +24,7 @@ game.TitleScreen = me.ScreenObject.extend({
                   },
                   
                   newGame: function(){
+                      console.log('new');
                       me.input.releasePointerEvent('pointerdown', this);                    
                       me.state.change(me.state.NEW);
                   }
@@ -46,6 +47,7 @@ game.TitleScreen = me.ScreenObject.extend({
                   },
                   
                   newGame: function(){
+                      console.log('loading');
                       me.input.releasePointerEvent('pointerdown', this);
                       me.state.change(me.state.LOAD);
                   }

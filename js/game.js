@@ -58,9 +58,9 @@ var game = {
 	}
 
 
-        me.save.SPENDEXP = 112;
-        me.save.LOAD = 113;
-        me.save.NEW = 114;
+        me.state.SPENDEXP = 112;
+        me.state.LOAD = 113;
+        me.state.NEW = 114;
 
         console.log(game.data.exp);
         console.log(game.data.exp2);
