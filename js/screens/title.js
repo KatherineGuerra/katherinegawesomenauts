@@ -4,7 +4,7 @@ game.TitleScreen = me.ScreenObject.extend({
 	 */
 	onResetEvent: function() {	
 		me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("title-screen")), -10); // TODO
-
+     
                 
                 game.data.option1 = new(me.Renderable.extend({
                   init: function(){
@@ -14,8 +14,7 @@ game.TitleScreen = me.ScreenObject.extend({
                   },  
                   draw: function(renderer){
                       this.font.draw(renderer.getContext(), "START A NEW GAME", this.pos.x, this.pos.y);
-                      
-                      
+                                           
                   },
                   
                   update: function(dt){
@@ -24,10 +23,13 @@ game.TitleScreen = me.ScreenObject.extend({
                   
                   newGame: function(){
                       me.input.releasePointerEvent('pointerdown', this); 
+                      me.input.releasePointerEvent('pointerdown', game.data.option2);
                       me.state.change(me.state.NEW);
                   }
                 }));               
  
+                me.game.world.addChild(game.data.option1, 5);
+                
                 game.data.option2 = new(me.Renderable.extend({
                   init: function(){
                       this._super(me.Renderable, 'init', [380, 340, 250, 50]);
@@ -44,10 +46,13 @@ game.TitleScreen = me.ScreenObject.extend({
                   },
                   
                   newGame: function(){
-                      me.input.releasePointerEvent('pointerdown', game.data.option2);
+                      me.input.releasePointerEvent('pointerdown', this); 
+                      me.input.releasePointerEvent('pointerdown', game.data.option1);
                       me.state.change(me.state.LOAD);
                   }
                 }));
+                me.game.world.addChild(game.data.option2, 5);
+
           
         },
 	
