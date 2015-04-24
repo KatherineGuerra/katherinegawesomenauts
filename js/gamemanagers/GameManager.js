@@ -40,7 +40,7 @@ game.ExperienceManager = Object.extend({
         })
                 .success(function(response) {
                     if (response) {
-                        me.state.change(me.state.PLAY);
+                        me.state.change(me.state.MENU);
                     } else {
                         alert(response);
                     }

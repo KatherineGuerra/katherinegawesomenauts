@@ -18,10 +18,15 @@ game.EnemyBaseEntity = me.Entity.extend({
         
         this.type = "EnemyBaseEntity";
         
+        this.addAnimation();
+    },
+    
+    addAnimation: function(){
         this.renderable.addAnimation("idle", [0]);
         this.renderable.addAnimation("broken", [1]);
         this.renderable.setCurrentAnimation("idle");
     },
+    
     update: function(delta){
         if(this.health<=0){
             this.broken = true;

@@ -29,7 +29,7 @@
            $array["exp4"] = $row["exp4"];
            $_SESSION["name"] = $username;
              
-           echo json_ecode($array);
+           echo json_encode($array);
        }
        else{
            echo "Invalid username and password";

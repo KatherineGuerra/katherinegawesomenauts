@@ -18,6 +18,10 @@ game.PlayerBaseEntity = me.Entity.extend({
         
         this.type = "PlayerBase";
         
+        this.addAnimation();
+    },
+    
+    addAnimation: function(){
         this.renderable.addAnimation("idle", [0]);
         this.renderable.addAnimation("broken", [1]);
         this.renderable.setCurrentAnimation("idle");
