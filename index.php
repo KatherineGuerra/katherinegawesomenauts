@@ -132,7 +132,7 @@
                         datatype: "text"
                     })
                             .success(function(response){
-                                if(response==="Invalid usernsme and password"){
+                                if(response==="Invalid username and password"){
                                     alert(response);
                                     
                                 }else{

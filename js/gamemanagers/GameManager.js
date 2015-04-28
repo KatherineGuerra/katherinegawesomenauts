@@ -21,9 +21,8 @@ game.ExperienceManager = Object.extend({
         } else {
             game.data.exp += 1;
         }
-
+        console.log(game.data.exp);
         this.gameover = true;
-        me.save.exp = game.data.exp;
 
 
         $.ajax({
@@ -39,7 +38,7 @@ game.ExperienceManager = Object.extend({
             datatype: "text"
         })
                 .success(function(response) {
-                    if (response) {
+                    if (response==='true') {
                         me.state.change(me.state.MENU);
                     } else {
                         alert(response);
