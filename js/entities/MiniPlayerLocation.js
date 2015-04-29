@@ -23,12 +23,12 @@ game.MiniPlayerLocation = me.Entity.extend({
         
         var my = this;
         this._super(me.Entity, "init", [x, y, {
-                width: 10,
-                height: 10,
-                spritewidth: 10,
-                spriteheight: 10,
+                width: 14,
+                height: 14,
+                spritewidth: 14,
+                spriteheight: 14,
                 getShape: function (){
-                    return(new me.Rect(0, 0, 10, 10)).toPolygon();
+                    return(new me.Rect(0, 0, 14, 14)).toPolygon();
                 }
         }]);
     },
