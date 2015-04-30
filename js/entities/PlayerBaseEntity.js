@@ -38,8 +38,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         return true;
     },
     
-    loseHealth: function(damage){
-        
+    loseHealth: function(damage){       
         this.health = this.health - damage;
     },
     

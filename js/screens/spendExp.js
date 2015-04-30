@@ -29,6 +29,7 @@ game.SpendExp = me.ScreenObject.extend({
                 })));               
           
                  this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge){
+                    //if this doesnt let you buy it mens you dont have enough experience
                      if(action === "F1"){
                          if(game.data.exp >= exp1cost){
                              game.data.exp1 += 1;

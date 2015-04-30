@@ -11,7 +11,8 @@ game.SpendGold = Object.extend({
     
     update: function(){
         this.now = new Date().getTime();
-        
+        //when you press the B key it will show the screen with options to buy 
+        //when you press it again then it will resume to the game
         if(me.input.isKeyPressed("buy") && this.now-this.lastBuy >=1000){
             this.lastBuy = this.now;
             if(!this.buying){
@@ -36,6 +37,7 @@ game.SpendGold = Object.extend({
         game.data.buyscreen.setOpacity(0.8);
         me.game.world.addChild(game.data.buyscreen, 34);
         game.data.player.body.setVelocity(0, 0);
+        //keys that allow you to buy 
         me.input.bindKey(me.input.KEY.F1, "F1", true);
         me.input.bindKey(me.input.KEY.F2, "F2", true);
         me.input.bindKey(me.input.KEY.F3, "F3", true);
@@ -48,6 +50,7 @@ game.SpendGold = Object.extend({
     setBuyText: function(){       
               game.data.buytext = new (me.Renderable.extend({
             init: function() {
+                //allows us to font our text
                 this._super(me.Renderable, 'init', [game.data.pausePos.x, game.data.pausePos.y, 300, 50]);
                 this.font = new me.Font("Arial", 26, "white");
                 this.updateWhenPaused = true;
@@ -68,6 +71,7 @@ game.SpendGold = Object.extend({
     
     stopBuying: function(){
         this.buying = false;
+        //when you are finish buying then it will resume to our screen
         me.state.resume(me.state.PLAY);
         game.data.player.body.setVelocity(game.data.playerMoveSpeed, 20);
         me.game.world.removeChild(game.data.buyscreen);
@@ -81,6 +85,7 @@ game.SpendGold = Object.extend({
     },
     
     checkBuyKeys: function(){
+        //allows us to purchase with the different keys
         if(me.input.isKeyPressed("F1")){
             if(this.checkCost(1)){
                 this.makePurchase(1);
@@ -127,6 +132,7 @@ game.SpendGold = Object.extend({
     },
     
     makePurchase: function(skill){
+        //the prices for the abilities and skills
        if(skill === 1){
         game.data.gold -= ((game.data.skill1 +1)*10);
         game.data.skill1 += 1;

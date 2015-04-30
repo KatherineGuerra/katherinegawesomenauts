@@ -3,6 +3,7 @@ game.LoadProfile = me.ScreenObject.extend({
 	 *  action to perform on state change
 	 */
 	onResetEvent: function() {	
+                //the buttons will appear visible
 		me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("load-screen")), -10); // TODO
                 document.getElementById("input").style.visibility = "visible";
                 document.getElementById("load").style.visibility = "visible";
@@ -33,6 +34,7 @@ game.LoadProfile = me.ScreenObject.extend({
 	 *  action to perform when leaving this screen (state change)
 	 */
 	onDestroyEvent: function() {
+                //after pressing the button then it will go to hidden
 		document.getElementById("input").style.visibility = "hidden";
                 document.getElementById("load").style.visibility = "hidden";
 

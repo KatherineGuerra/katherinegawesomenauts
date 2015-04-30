@@ -51,6 +51,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     addAnimation: function(){        
+        //the animation images 
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
         this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
@@ -78,6 +79,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     
     checkKeyPressesAndMove: function(){
+        //if this statement is true then it will go right but if its not true then it will try the else statement
           if (me.input.isKeyPressed("right")) {
             this.moveRight();
         } else if(me.input.isKeyPressed("left")){
@@ -85,13 +87,13 @@ game.PlayerEntity = me.Entity.extend({
         }else {
             this.body.vel.x = 0;
         }
-        
+        //if this statement doesnt work then else if statement will tell us if this doesnt work
         if(me.input.isKeyPressed("jump") && !this.jumping && !this.faling){
            this.jump();
         }else if(this.body.vel.y ===0){
             this.jumping = false;
         }
-        
+        //this will know to attck when you press the key
         this.attacking = me.input.isKeyPressed("attack");
     },
     
@@ -119,7 +121,7 @@ game.PlayerEntity = me.Entity.extend({
         if(me.input.isKeyPressed("skill1")){
             //this.speedBurst();
         }else if(me.input.isKeyPressed("skill2")){
-            //this.eatCreep
+            //this.eatCreep();
         }else if(me.input.isKeyPressed("skill3")){
             this.throwSpear();
         }
@@ -231,7 +233,6 @@ game.PlayerEntity = me.Entity.extend({
             if (response.b.health <= game.data.playerAttack) {
                 //adds one gold when creep is killed
                 game.data.gold += 1;
-                console.log("Current gold: " + game.data.gold)
             }
             response.b.loseHealth(game.data.playerAttack);
     }

@@ -5,6 +5,8 @@ game.ExperienceManager = Object.extend({
         this.gameover = false;
     },
     update: function() {
+        //if this if statement comes true then it will give us an alert saying you win
+        //if it doesnt come true then it will go to the else if statment and give us an alert saying you lose
         if (game.data.win === true && !this.gameover) {
             this.gameOver(true);
             alert("YOU WIN!");
@@ -16,14 +18,13 @@ game.ExperienceManager = Object.extend({
         return true;
    },
     gameOver: function(win) {
-        if (win) {
+        //if you win then you will earn exp
+        if(win) {
             game.data.exp += 10;
         } else {
             game.data.exp += 1;
         }
-        console.log(game.data.exp);
         this.gameover = true;
-
 
         $.ajax({
             type: "POST",
@@ -38,6 +39,7 @@ game.ExperienceManager = Object.extend({
             datatype: "text"
         })
                 .success(function(response) {
+                    //when you win then it will send you back to the main menu screen
                     if (response==='true') {
                         me.state.change(me.state.MENU);
                     } else {

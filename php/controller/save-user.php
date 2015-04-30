@@ -20,7 +20,7 @@ $query = $_SESSION["connection"]->query("UPDATE users SET "
 
 //if it worked i'm going to echo true
 if($query){
-    echo true;
+    echo "true";
 }else{
     echo "<p>" . $_SESSION["connection"]->error . "</p>";
 }

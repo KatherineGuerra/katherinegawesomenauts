@@ -17,6 +17,7 @@ game.SpearThrow = me.Entity.extend({
         this.facing = facing;
     },
     update: function(delta){ 
+        //if it true then it will go left and if its not then it will go to the else statement
         if (this.facing === "left"){
             this.body.vel.x -= this.body.accel.x * me.timer.tick;
         }else{
@@ -31,7 +32,7 @@ game.SpearThrow = me.Entity.extend({
         return true;       
        
     },
-    
+    //the spear to collide with enemycreep
      collideHandler: function(response){
         if(response.b.type==='EnemyBase' || response.b.type==='EnemyCreep'){
                 //makes the player base call its loseHealth function and paases it a damge of 1

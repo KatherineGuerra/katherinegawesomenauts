@@ -33,6 +33,7 @@ game.EnemyBaseEntity = me.Entity.extend({
             game.data.win = true;
             this.renderable.setCurrentAnimation("broken");
         }
+        //it alway updates
         this.body.update(delta);
         
         this._super(me.Entity, "update", [delta]);

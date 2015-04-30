@@ -5,13 +5,14 @@ var game = {
 	// an object where to store game information
 	data : {
 		// score
+                //global variables
 		score : 0,
                 option1: "",
                 option2: "",
                 enemyBaseHealth: 1,
-                playerBaseHealth: 5,
+                playerBaseHealth: 1,
                 enemyCreepHealth: 1,
-                playerHealth: 10,
+                playerHealth: 1,
                 enemyCreepAttack:1,
                 playerAttack: 1,
 //                orcBaseDamage: 10,
@@ -67,8 +68,7 @@ var game = {
         me.state.LOAD = 113;
         me.state.NEW = 114;
 
-        console.log(game.data.exp);
-        console.log(game.data.exp2);
+        
 
 	// Initialize the audio.
 	me.audio.init("mp3,ogg");
@@ -85,6 +85,7 @@ var game = {
 
 	// Run on game resources loaded.
 	"loaded" : function () {
+                //all classes
                 me.pool.register("player", game.PlayerEntity, true);     
                 me.pool.register("PlayerBase", game.PlayerBaseEntity);
                 me.pool.register("EnemyBase", game.EnemyBaseEntity);

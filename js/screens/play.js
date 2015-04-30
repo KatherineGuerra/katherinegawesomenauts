@@ -8,7 +8,7 @@ game.PlayScreen = me.ScreenObject.extend({
                 me.levelDirector.loadLevel("level01");
 
                 this.resetPlayer(0, 420);
-//                
+//               //variables
                 var gameTimerManager = me.pool.pull("GameTimerManager", 0, 0, {});
                 me.game.world.addChild(gameTimerManager, 0);
                 
@@ -20,10 +20,10 @@ game.PlayScreen = me.ScreenObject.extend({
 //                
                 var spendGold = me.pool.pull("SpendGold", 0, 0, {});
                 me.game.world.addChild(spendGold, 0);
-                
+                //this is loading it above the minimap
                 game.data.minimap = me.pool.pull("minimap", 10, 10, {});
                 me.game.world.addChild(game.data.minimap, 30);
-                
+                //this allows you to select the key ou want to use for your game
                 me.input.bindKey(me.input.KEY.B, "buy");
                 me.input.bindKey(me.input.KEY.Q, "skill1");
                 me.input.bindKey(me.input.KEY.W, "skill2");
@@ -47,11 +47,11 @@ game.PlayScreen = me.ScreenObject.extend({
 		// remove the HUD from the game world
 		me.game.world.removeChild(this.HUD);
 	},
-        
+        //theses codes from our resetplayer function have to be showing up when our player dies
         resetPlayer: function(x, y){
              game.data.player = me.pool.pull("player", x, y, {});  
              me.game.world.addChild(game.data.player, 5);
-             
+             //this is loading it below the minimap
              game.data.miniPlayer = me.pool.pull("miniplayer", 10, 10, {});
              me.game.world.addChild(game.data.miniPlayer, 31);
         }
