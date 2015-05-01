@@ -22,7 +22,7 @@ game.MiniPlayerLocation = me.Entity.extend({
         //stroke is the line that goes around the circle
         ctx.strokeStyle = "blue";
         ctx.lineWidth = 2;
-        
+        console.log("miniPInit");
         ctx.arc(this.r + 2, this.r + 2, this.r, 0, Math.PI*2);
         ctx.fill();
         ctx.stroke();
@@ -50,8 +50,9 @@ game.MiniPlayerLocation = me.Entity.extend({
                 );
     },
     update: function(){
+        console.log(this.pos.x + " " + this.pos.y);
         //the mini map starts on the 10 value
-        this.pos.x = (10 + (game.data.player.pos.x * 0.062));
-        this.pos.y = (10 + (game.data.player.pos.y * 0.06));
+        this.pos.x = (10 + (game.data.player.pos.x * 0.25));
+        this.pos.y = (10 + (game.data.player.pos.y * 0.25));
     }
 });
