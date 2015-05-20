@@ -50,7 +50,6 @@ game.MiniPlayerLocation = me.Entity.extend({
                 );
     },
     update: function(){
-        console.log(this.pos.x + " " + this.pos.y);
         //the mini map starts on the 10 value
         this.pos.x = (10 + (game.data.player.pos.x * 0.25));
         this.pos.y = (10 + (game.data.player.pos.y * 0.25));
